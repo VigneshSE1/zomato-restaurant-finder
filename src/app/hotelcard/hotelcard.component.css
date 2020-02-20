@@ -1,0 +1,28 @@
+#mainDiv {
+  /* text-align: center; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.call-menu-book {
+  color: red;
+  text-decoration: none;
+}
+
+
+#res-image {
+  background-image: url("https://via.placeholder.com/125x125");
+  height: 125px;
+  width: 125px;
+  display: inline-block;
+  border-radius: 4px;
+
+}
+
+.pagebutton {
+
+  margin-left: 5px;
+  margin-bottom: 5px;
+}

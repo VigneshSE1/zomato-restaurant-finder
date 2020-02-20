@@ -1,0 +1,127 @@
+<div class="row">
+    <div class="col-lg-12" style="text-align: center;">
+        <h1 style="color: red;"><b>ZOMATO - RESTAURANT - FINDER</b></h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <!-- <div class="card"> -->
+        <form [formGroup]="formData">
+            <div class="row">
+                <div class="col-lg-4">
+                    <label for=""><b>SEARCH</b></label>
+                    <input type="text" placeholder="" class="form-control" formControlName="keyword"
+                        placeholder="Search Here...">
+                </div>
+                <div class="col-lg-4">
+                    <label for=""><b>SORT BY</b> </label>
+                    <select id="sort" name="cars" class="form-control" formControlName="sort">
+                        <option value=""></option>
+                        <option value="cost">cost</option>
+                        <option value="rating">rating</option>
+                        <option value="real_distance">Distance</option>
+                    </select>
+                </div>
+                <div class="col-lg-4">
+                    <label for=""><b>ORDER BY</b> </label>
+                    <select id="order" name="cars" class="form-control" formControlName="order">
+                        <option value=""></option>
+                        <option value="asc">asc</option>
+                        <option value="desc">desc</option>
+                    </select>
+                </div>
+
+
+                <div class="col-lg-12" style="text-align: center;">
+                    <br>
+                    <input type="submit" class="btn btn-primary" (click)=setParams(1)>
+
+                </div>
+
+            </div>
+
+        </form>
+        <!-- </div> -->
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12" *ngFor="let res of restaurantArray;" id="mainDiv">
+        <div class="card" style="width: 40rem; margin-top: 10px;">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <a href='#'>
+                            <div id='res-image' [ngStyle]="{'background-image': 'url(' + res.restaurant.thumb + ')'}">
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-9" style="position: relative;">
+                        <div style="position: absolute; margin-left: 75%;">
+                            <div style="padding: 4px; border-radius: 4px; text-align: center;"
+                                [ngStyle]="{'background-color':'#'+res.restaurant.user_rating.rating_color}">
+                                <h3>{{res.restaurant.user_rating.aggregate_rating}}
+                                </h3>
+                            </div>
+                            <h6 style=" font-size: small;">{{res.restaurant.user_rating.votes}} VOTES</h6>
+
+                        </div>
+
+                        <span style="font-size:smaller;">SPONSORED</span><br>
+                        <span style="font-size: smaller;">CAUSAL DINING</span>
+                        <span style="color: red;">
+                            <h4><b>{{res.restaurant.name}}</b></h4>
+                        </span>
+                        <span><b>{{res.restaurant.location.locality}}</b></span><br>
+                        <span>
+                            {{res.restaurant.location.address}}
+                        </span>
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <hr>
+                        <span> CUISINES:{{res.restaurant.cuisines}}</span><br>
+                        <span>HOURS: {{res.restaurant.timings}}</span><br>
+                        <span>COST FOR TWO: {{res.restaurant.average_cost_for_two}}</span>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-lg-4 bootom-menu" style="text-align:center;">
+                        <a href="#" class="call-menu-book"><span><b>Call</b> </span></a>
+                    </div>
+                    <div class="col-lg-4 bootom-menu" style="text-align: center;">
+                        <a href="#" class="call-menu-book"><span><b>View Menu</b> </span></a>
+                    </div>
+                    <div class="col-lg-4 bootom-menu" style="text-align: center;">
+                        <a href="#" class="call-menu-book"><span><b>Book Table</b> </span></a>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12" style="text-align: center; margin-top: 10px;">
+        <button class="btn btn-success pagebutton" (click)=setParams(1)>1</button>
+        <button class="btn btn-success pagebutton" (click)=setParams(21)>2</button>
+        <button class="btn btn-success pagebutton" (click)=setParams(41)>3</button>
+        <button class="btn btn-success pagebutton" (click)=setParams(61)>4</button>
+        <button class="btn btn-success pagebutton" (click)=setParams(81)>5</button>
+    </div>
+
+</div>
+<footer style="text-align: center; background-color: black;">
+    <a href="https://github.com/VigneshSE1/zomato-restaurant-finder" target="blank" style="color: white">
+        <h2>Code in Github</h2>
+    </a>
+</footer>
