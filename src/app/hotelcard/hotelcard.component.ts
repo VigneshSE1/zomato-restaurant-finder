@@ -39,7 +39,7 @@ export class HotelcardComponent implements OnInit {
 
   getdata(urlQuery) {
     this.http.get('https://developers.zomato.com/api/v2.1/search?entity_id=7&entity_type=city&count=100&' + urlQuery, {
-      headers: { 'Content-Type': 'application/json', 'user-key': 'f985d357708f9e0123d0ab364d60a499' },
+      headers: { 'Content-Type': 'application/json', 'user-key': 'd16ed6fbf82d1df02c44cfb74b3e7130' },
     })
       .subscribe((data) => {
         this.restaurantArray = data["restaurants"]
